@@ -1,8 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database";
-import { Reply } from "./Reply";
 
-export const Comment = sequelize.define("comment", {
+export const Reply = sequelize.define("reply", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -16,10 +15,4 @@ export const Comment = sequelize.define("comment", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-});
-
-Comment.hasMany(Reply, {
-    as: "replies",
-    onDelete: "cascade",
-    onUpdate: "cascade",
 });
